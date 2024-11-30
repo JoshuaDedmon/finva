@@ -1,1 +1,69 @@
+"""
+Core functionality for Excel analysis and query processing.
 
+This package contains the core components of Finva:
+- Data structures for representing Excel content
+- Spatial indexing of Excel files
+- Query analysis and processing
+- Data retrieval and manipulation
+
+Modules:
+    types: Core data structures and type definitions
+    indexer: Excel file indexing and spatial analysis
+    analyzer: Query analysis and data retrieval
+
+Example:
+    >>> from finva.core import ExcelIndexer
+    >>> indexer = ExcelIndexer()
+    >>> indexer.index_workbook("path/to/file.xlsx")
+"""
+from typing import List, Dict, Any
+
+# Version of the core module
+__version__ = "0.1.0"
+
+# Import core components
+from .types import (
+    CellContext,
+    DataRegion,
+    SpatialIndex,
+    QueryResult
+)
+
+from .indexer import (
+    ExcelIndexer,
+    IndexingStrategy
+)
+
+from .analyzer import (
+    QueryAnalyzer,
+    AnalysisResult
+)
+
+# Define public API
+__all__: List[str] = [
+    # Data structures
+    'CellContext',
+    'DataRegion',
+    'SpatialIndex',
+    'QueryResult',
+    
+    # Core classes
+    'ExcelIndexer',
+    'IndexingStrategy',
+    'QueryAnalyzer',
+    'AnalysisResult',
+]
+
+# Module metadata
+metadata: Dict[str, Any] = {
+    'name': 'finva.core',
+    'version': __version__,
+    'author': 'Finva Team',
+    'description': 'Core functionality for Excel analysis and query processing',
+    'dependencies': [
+        'pandas',
+        'numpy',
+        'openpyxl'
+    ]
+}
